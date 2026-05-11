@@ -33,13 +33,18 @@ export function Header() {
   return (
     <header
       className={[
-        "sticky top-0 z-40 w-full transition-all duration-200",
+        "sticky top-0 z-40 w-full transition-[background,box-shadow,backdrop-filter] duration-300",
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-[0_2px_12px_-6px_rgba(15,42,71,0.18)]"
           : "bg-white/80 backdrop-blur",
       ].join(" ")}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
+      <div
+        className={[
+          "mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 transition-[padding] duration-300",
+          scrolled ? "py-1" : "py-2",
+        ].join(" ")}
+      >
         <Link
           href="/"
           aria-label={`${site.name} — ${site.tagline}`}
@@ -51,7 +56,10 @@ export function Header() {
             width={480}
             height={320}
             priority
-            className="h-24 w-auto object-contain sm:h-32 lg:h-40"
+            className={[
+              "w-auto object-contain transition-[height] duration-300",
+              scrolled ? "h-20 sm:h-24 lg:h-28" : "h-24 sm:h-32 lg:h-40",
+            ].join(" ")}
           />
         </Link>
 
@@ -63,18 +71,28 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-[15px] font-medium text-ink-soft hover:text-lake transition-colors"
+              className="fancy-underline text-[15px] font-medium text-ink-soft hover:text-lake transition-colors"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <span
+            aria-hidden
+            className="hidden lg:inline-flex items-center gap-2 rounded-full bg-leaf/10 px-3 py-1.5 text-[12px] font-semibold uppercase tracking-wider text-leaf-700"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-leaf opacity-75 motion-safe:animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-leaf" />
+            </span>
+            Available today
+          </span>
           <a
             href={site.phoneHref}
             aria-label={`Call ${site.name} at ${site.phone}`}
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-leaf hover:bg-leaf-600 px-5 py-2.5 text-white font-semibold shadow-card transition-colors"
+            className="hidden md:inline-flex items-center gap-2 rounded-full bg-leaf hover:bg-leaf-600 px-5 py-2.5 text-white font-semibold shadow-card transition-all duration-200 active:scale-[0.98]"
           >
             <Icon name="phone-call" className="w-4 h-4" />
             <span>{site.phone}</span>

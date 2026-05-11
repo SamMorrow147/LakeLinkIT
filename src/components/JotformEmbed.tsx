@@ -32,7 +32,7 @@ export function JotformEmbed({ formId, height = 760 }: JotformEmbedProps) {
     <div
       role="region"
       aria-label="Appointment request form placeholder"
-      className="relative flex flex-col items-center rounded-2xl border-2 border-dashed border-sky/60 bg-white/70 p-10 text-center"
+      className="shimmer-mask relative flex flex-col items-center rounded-2xl border-2 border-dashed border-sky/60 bg-white/70 p-10 text-center"
     >
       <Icon name="mail" className="w-12 h-12 text-navy stroke-[1.6]" />
       <h3 className="mt-4 font-display text-xl font-semibold text-navy">

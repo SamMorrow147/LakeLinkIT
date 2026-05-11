@@ -1,7 +1,20 @@
 import type { IconName } from "@/lib/site";
 
 type IconProps = {
-  name: IconName | "check" | "phone-call" | "mail" | "map-pin" | "menu" | "close" | "arrow-right" | "clock" | "star";
+  name:
+    | IconName
+    | "check"
+    | "phone-call"
+    | "mail"
+    | "map-pin"
+    | "menu"
+    | "close"
+    | "arrow-right"
+    | "arrow-up"
+    | "chevron-down"
+    | "clock"
+    | "star"
+    | "quote";
   className?: string;
 };
 
@@ -138,6 +151,24 @@ export function Icon({ name, className = "w-6 h-6" }: IconProps) {
       return (
         <svg {...common}>
           <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      );
+    case "arrow-up":
+      return (
+        <svg {...common}>
+          <path d="M12 19V5M6 11l6-6 6 6" />
+        </svg>
+      );
+    case "chevron-down":
+      return (
+        <svg {...common}>
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      );
+    case "quote":
+      return (
+        <svg {...common} fill="currentColor" stroke="none">
+          <path d="M7.17 6C4.87 6 3 7.87 3 10.17V18h6v-7.83H6c0-1.84 1.5-3.34 3.34-3.34V6h-2.17zm9 0c-2.3 0-4.17 1.87-4.17 4.17V18h6v-7.83H15c0-1.84 1.5-3.34 3.34-3.34V6h-2.17z" />
         </svg>
       );
     case "clock":

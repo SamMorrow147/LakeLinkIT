@@ -7,8 +7,34 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-line bg-navy text-sky-100">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+    <footer className="relative isolate overflow-hidden border-t border-line bg-navy text-sky-100">
+      {/* Wave divider */}
+      <div aria-hidden className="absolute inset-x-0 -top-px pointer-events-none">
+        <svg
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none"
+          className="block h-16 sm:h-20 w-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,40 C240,80 480,0 720,32 C960,64 1200,16 1440,48 L1440,0 L0,0 Z"
+            fill="#ffffff"
+            opacity="0.06"
+          />
+          <path
+            d="M0,55 C240,90 480,15 720,48 C960,80 1200,30 1440,60 L1440,0 L0,0 Z"
+            fill="#6fb5e8"
+            opacity="0.10"
+          />
+          <path
+            d="M0,70 C240,100 480,30 720,62 C960,92 1200,42 1440,72 L1440,0 L0,0 Z"
+            fill="#1e78c8"
+            opacity="0.10"
+          />
+        </svg>
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 pt-20">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Link
@@ -33,14 +59,14 @@ export function Footer() {
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href={site.phoneHref}
-                className="inline-flex items-center gap-2 rounded-full bg-leaf hover:bg-leaf-600 px-5 py-2.5 text-white font-semibold transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-leaf hover:bg-leaf-600 px-5 py-2.5 text-white font-semibold transition-all duration-200 active:scale-[0.98]"
               >
                 <Icon name="phone-call" className="w-4 h-4" />
                 {site.phone}
               </a>
               <a
                 href={`mailto:${site.email}`}
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/15 px-5 py-2.5 text-white font-semibold ring-1 ring-white/15 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/15 px-5 py-2.5 text-white font-semibold ring-1 ring-white/15 transition-all duration-200 active:scale-[0.98]"
               >
                 <Icon name="mail" className="w-4 h-4" />
                 Email Us
@@ -57,7 +83,7 @@ export function Footer() {
                 <li key={s.id}>
                   <a
                     href="#services"
-                    className="text-[15px] text-sky-100/85 hover:text-white transition-colors"
+                    className="fancy-underline text-[15px] text-sky-100/85 hover:text-white transition-colors"
                   >
                     {s.shortName}
                   </a>
@@ -68,7 +94,7 @@ export function Footer() {
 
           <div className="lg:col-span-3">
             <h3 className="font-display text-base font-semibold text-white">
-              Visit & Hours
+              Visit &amp; Hours
             </h3>
             <address className="mt-4 not-italic">
               <div className="flex items-start gap-2 text-[15px] text-sky-100/85">
@@ -92,13 +118,23 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-sky-100/70">
+        <div className="relative mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-sky-100/70">
           <p>
             &copy; {year} {site.name}. All rights reserved.
           </p>
           <p>
             Proudly local to {site.city}, {site.region}.
           </p>
+        </div>
+      </div>
+
+      {/* Giant low-opacity wordmark watermark */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden select-none"
+      >
+        <div className="font-display font-bold text-white/[0.04] leading-[0.85] tracking-tight whitespace-nowrap text-[18vw] -mb-[2vw] text-center">
+          LakeLink IT
         </div>
       </div>
     </footer>

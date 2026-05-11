@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { defaultMetadata, localBusinessJsonLd } from "@/lib/seo";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +39,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to main content
         </a>
+        <ScrollProgress />
         {children}
         <script
           type="application/ld+json"

@@ -133,3 +133,84 @@ button:focus-visible,
   background-clip: text;
   color: transparent;
 }
+
+/* Subtle 1px dot-grid pattern for "tech blueprint" backgrounds.
+   Use on any element; tone is controlled with currentColor + opacity. */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    currentColor 1px,
+    transparent 1.4px
+  );
+  background-size: 28px 28px;
+  background-position: 0 0;
+}
+
+.dot-grid-sm {
+  background-image: radial-gradient(
+    circle,
+    currentColor 1px,
+    transparent 1.4px
+  );
+  background-size: 20px 20px;
+}
+
+/* shimmer sweep across an element — used by the Jotform placeholder.
+   Toggle with .shimmer animation; respects prefers-reduced-motion. */
+.shimmer-mask {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-mask::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(30, 120, 200, 0.08) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-mask::before {
+    animation: none;
+  }
+}
+
+/* Animated underline used on nav/footer links */
+.fancy-underline {
+  position: relative;
+  display: inline-block;
+}
+.fancy-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 2px;
+}
+.fancy-underline:hover::after,
+.fancy-underline:focus-visible::after {
+  transform: scaleX(1);
+}

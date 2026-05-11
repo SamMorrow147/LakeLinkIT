@@ -8,6 +8,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { ServiceArea } from "@/components/ServiceArea";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
+import { BackToTop } from "@/components/BackToTop";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
