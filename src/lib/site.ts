@@ -8,9 +8,9 @@ export const site = {
   region: "MN",
   zip: "56308",
   street: "Alexandria, MN", // placeholder — swap with mailing address
-  phone: "(320) 555-0123", // placeholder
-  phoneHref: "tel:+13205550123", // placeholder
-  email: "hello@lakelinkit.com", // placeholder
+  phone: "(218) 446-2410",
+  phoneHref: "tel:+12184462410",
+  email: "Lakelinkit@gmail.com",
   hours: [
     { days: "Mon – Fri", time: "8:00 AM – 7:00 PM" },
     { days: "Saturday", time: "9:00 AM – 4:00 PM" },
