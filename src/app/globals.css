@@ -42,6 +42,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Prevent horizontal scroll caused by decorative oversized elements
+   (hero gradient blobs, footer wordmark watermark, etc.).
+   `overflow-x: clip` is preferred over `hidden` because it does NOT
+   create a new scroll container, so `position: sticky` keeps working. */
+html,
+body {
+  overflow-x: clip;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
