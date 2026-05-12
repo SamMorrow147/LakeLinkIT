@@ -40,6 +40,11 @@
 
 html {
   scroll-behavior: smooth;
+  /* When the page is fully scrolled to the bottom on iOS, the navy
+     footer should appear to continue under Safari's URL pill. The
+     <html> background sits behind <body>'s white background, so the
+     bottom overscroll/elastic bounce reveals navy instead of white. */
+  background: var(--color-navy);
 }
 
 /* Prevent horizontal scroll caused by decorative oversized elements
@@ -49,6 +54,19 @@ html {
 html,
 body {
   overflow-x: clip;
+}
+
+/* Tailwind utilities for iOS safe-area insets (notch, home indicator,
+   bottom URL pill in Safari). Used by the header (top inset) and
+   footer + floating Back-to-Top button (bottom inset). */
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.bottom-safe {
+  bottom: calc(1.25rem + env(safe-area-inset-bottom));
 }
 
 @media (prefers-reduced-motion: reduce) {

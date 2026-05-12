@@ -33,7 +33,7 @@ export function Header() {
   return (
     <header
       className={[
-        "sticky top-0 z-40 w-full transition-[background,box-shadow,backdrop-filter] duration-300",
+        "sticky top-0 z-40 w-full pt-safe transition-[background,box-shadow,backdrop-filter] duration-300",
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-[0_2px_12px_-6px_rgba(15,42,71,0.18)]"
           : "bg-white/80 backdrop-blur",

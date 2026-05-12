@@ -7,7 +7,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative isolate overflow-hidden border-t border-line bg-navy text-sky-100">
+    <footer className="relative isolate overflow-hidden border-t border-line bg-navy text-sky-100 pb-safe">
       {/* Wave divider */}
       <div aria-hidden className="absolute inset-x-0 -top-px pointer-events-none">
         <svg

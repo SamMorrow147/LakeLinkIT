@@ -23,6 +23,7 @@ export const viewport: Viewport = {
   themeColor: "#0f2a47",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -33,9 +34,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-ink">
+      <body className="min-h-dvh flex flex-col bg-white text-ink">
         <a href="#main" className="skip-link">
           Skip to main content
         </a>

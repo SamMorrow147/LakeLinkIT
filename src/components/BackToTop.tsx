@@ -33,7 +33,7 @@ export function BackToTop() {
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           whileHover={reduced ? undefined : { y: -2 }}
           whileTap={{ scale: 0.96 }}
-          className="fixed bottom-5 right-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-navy text-white shadow-lg shadow-navy/30 ring-1 ring-white/10 transition-colors hover:bg-navy-700"
+          className="fixed bottom-safe right-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-navy text-white shadow-lg shadow-navy/30 ring-1 ring-white/10 transition-colors hover:bg-navy-700"
         >
           <Icon name="arrow-up" className="w-5 h-5 stroke-[2.2]" />
         </motion.button>
