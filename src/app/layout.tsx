@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { defaultMetadata, localBusinessJsonLd } from "@/lib/seo";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
+
+const GA_MEASUREMENT_ID = "G-LX2G5VEYDW";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,6 +50,18 @@ export default function RootLayout({
             __html: JSON.stringify(localBusinessJsonLd()),
           }}
         />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
